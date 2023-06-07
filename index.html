@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>swiggy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      section {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("image/15.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      .container {
+        width: 85%;
+        margin: 0 auto;
+      }
+
+      .row {
+        display: flex;
+      }
+
+      .img-content {
+        width: 50%;
+        padding: 30px;
+      }
+
+      .img-content img {
+        max-width: 100%;
+        border-radius: 1%;
+      }
+
+      .input-content {
+        width: 50%;
+      }
+
+      .input-content #function input {
+        padding: 20px;
+        background: #0000007d;
+        border-color: #ffffff91;
+        color: white;
+      }
+
+      #function input:focus {
+        border-color: white;
+        outline: 0;
+        color: white;
+        font-size: 15px;
+      }
+
+      .input-content img {
+        max-width: 100%;
+        border-radius: 10%;
+      }
+
+      .content {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+      }
+
+      .content h1 {
+        color: white;
+      }
+
+      button {
+        color: red;
+        font-size: 20px;
+        border: none;
+        background: transparent;
+      }
+
+      .btn {
+        display: inline-block;
+        text-decoration: none;
+        color: white;
+        background-color: blue;
+        padding: 12px 25px;
+        text-align: center;
+        width: 100%;
+        border: none;
+        font-size: 20px;
+        margin-top: 40px;
+      }
+
+      .link {
+        text-decoration: none;
+        color: red;
+      }
+
+      input {
+        border: 1px solid #000;
+        border-radius: 10px;
+      }
+
+      @media (min-width:330px) {
+        .row {
+          display: flex;
+          flex-wrap: wrap;
+          text-align: center;
+        }
+
+        .col {
+          width: 100%;
+        }
+
+        .img-content {
+          text-align: center;
+        }
+
+        .img-content img {
+          max-width: 100%;
+          border-radius: 1%;
+        }
+
+        input {
+          width: 50%;
+          margin: 10px 0;
+        }
+
+        .input-content img {
+          display: none;
+        }
+
+        .btn {
+          margin-bottom: 30px;
+          width: 50%;
+          border-radius: 10px;
+        }
+      }
+
+      @media (min-width:720px) {
+        .row {
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        .col {
+          width: 100%;
+        }
+
+        .img-content {
+          text-align: center;
+        }
+
+        .img-content img {
+          max-width: 100%;
+          border-radius: 1%;
+        }
+
+        input {
+          width: 50%;
+          margin: 10px 0;
+        }
+
+        .content {
+          display: block;
+        }
+
+        .input-content img {
+          display: none;
+        }
+
+        .btn {
+          width: 50%;
+        }
+      }
+
+      @media (min-width:1000px) {
+        .row {
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+          text-align: left;
+        }
+
+        .col {
+          width: 50%;
+        }
+
+        .img-content {
+          text-align: left;
+        }
+
+        .img-content img {
+          width: 550px;
+          border-radius: 1%;
+        }
+
+        .content {
+          display: flex;
+        }
+
+        .input-content img {
+          display: block;
+          width: 130px;
+        }
+		input {
+          width: 90%;
+          margin: 10px 0;
+        }
+		.btn{
+		  width:98%;
+		}
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="img-content col">
+            <img src="swiggy1.png">
+          </div>
+          <div class="input-content col">
+            <div class="content">
+              <h1>LOG-IN <br>or <a href="swiggysignup.html" class="link">Signup to your Account</a>
+              </h1>
+              <img src="swiggy.jfif">
+            </div>
+            <form id="function">
+              <input type="text" placeholder="USER NAME" id="USER">
+              <input type="password" placeholder="PASSWORD" id="PASSWORD">
+              <button class="btn">submit</button>
+              <div id="result"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      let form = document.querySelector('#function');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault()
+        let pass = document.querySelector('#PASSWORD').value;
+        let user = document.querySelector('#USER').value;
+        let result = document.querySelector('#result');
+        if (user === " " || !(isNaN(user))) {
+          result.innerHTML = "please enter the correct user name";
+          result.style.color = "red";
+        } else if (pass === "") {
+          result.innerHTML = "please enter the password";
+          result.style.color = "red";
+        } else {
+          result.innerHTML = "sign up sucessfull";
+          result.style.color = "green";
+        }
+      });
+    </script>
+  </body>
+</html>
